@@ -127,7 +127,6 @@ uint8_t Dakin3p5939722eClimate::temperature_() {
       return 0x32;
     case climate::CLIMATE_MODE_DRY:
       return 0xC0;
-    case climate::CLIMATE_MODE_HEAT_COOL:
     default:
       uint8_t temperature = (uint8_t) roundf(clamp<float>(this->target_temperature, DAIKIN_TEMP_MIN, DAIKIN_TEMP_MAX));
       return temperature << 1;
