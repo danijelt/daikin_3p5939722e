@@ -64,12 +64,12 @@ class Dakin3p5939722eClimate : public climate_ir::ClimateIR {
  protected:
   // Transmit via IR the state of this climate controller.
   void transmit_state() override;
-  uint8_t operation_mode_();
-  uint8_t fan_speed_();
-  uint8_t swing_();
-  uint8_t temperature_();
-  uint8_t powerful_sleep_preset_();
-  uint8_t eco_preset_();
+  uint8_t operation_mode_() const;
+  uint8_t fan_speed_() const;
+  uint8_t swing_() const;
+  uint8_t temperature_() const;
+  uint8_t powerful_sleep_preset_() const;
+  uint8_t eco_preset_() const;
 
 };
 

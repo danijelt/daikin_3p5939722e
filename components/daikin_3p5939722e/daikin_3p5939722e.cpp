@@ -67,7 +67,7 @@ void Dakin3p5939722eClimate::transmit_state() {
   transmit.perform();
 }
 
-uint8_t Dakin3p5939722eClimate::operation_mode_() {
+uint8_t Dakin3p5939722eClimate::operation_mode_() const {
   uint8_t operating_mode = DAIKIN_MODE_ON;
   switch (this->mode) {
     case climate::CLIMATE_MODE_COOL:
@@ -94,7 +94,7 @@ uint8_t Dakin3p5939722eClimate::operation_mode_() {
   return operating_mode;
 }
 
-uint8_t Dakin3p5939722eClimate::fan_speed_() {
+uint8_t Dakin3p5939722eClimate::fan_speed_() const {
   switch (this->fan_mode.value()) {
     case climate::CLIMATE_FAN_QUIET:
       return DAIKIN_FAN_QUIET;
@@ -110,7 +110,7 @@ uint8_t Dakin3p5939722eClimate::fan_speed_() {
   }
 }
 
-uint8_t Dakin3p5939722eClimate::swing_() {
+uint8_t Dakin3p5939722eClimate::swing_() const {
   switch (this->swing_mode) {
     case climate::CLIMATE_SWING_VERTICAL:
       return DAIKIN_SWING_VERTICAL;
@@ -120,7 +120,7 @@ uint8_t Dakin3p5939722eClimate::swing_() {
   }
 }
 
-uint8_t Dakin3p5939722eClimate::temperature_() {
+uint8_t Dakin3p5939722eClimate::temperature_() const {
   // Force special temperatures depending on the mode
   switch (this->mode) {
     case climate::CLIMATE_MODE_FAN_ONLY:
@@ -133,7 +133,7 @@ uint8_t Dakin3p5939722eClimate::temperature_() {
   }
 }
 
-uint8_t Dakin3p5939722eClimate::powerful_sleep_preset_() {
+uint8_t Dakin3p5939722eClimate::powerful_sleep_preset_() const {
   if (this->preset == climate::CLIMATE_PRESET_BOOST) {
     return DAIKIN_POWERFUL_ON;
   } else if (this->preset == climate::CLIMATE_PRESET_SLEEP) {
@@ -145,7 +145,7 @@ uint8_t Dakin3p5939722eClimate::powerful_sleep_preset_() {
   }
 }
 
-uint8_t Dakin3p5939722eClimate::eco_preset_() {
+uint8_t Dakin3p5939722eClimate::eco_preset_() const {
   if (this->preset == climate::CLIMATE_PRESET_COMFORT) {
     return DAIKIN_ECO_ON;
   } else if (this->preset == climate::CLIMATE_PRESET_ECO) {
